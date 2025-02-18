@@ -1,0 +1,34 @@
+Here we are—your project is set up and ready to go. You’ll notice many files and folders, so let me walk you through them from bottom to top,
+
+tsconfig.json: This is the configuration file for TypeScript. It defines what should be type-checked, ignored and the rules to follow.
+tailwind.config.ts: This is where TailwindCSS is configured. You can extend TailwindCSS by customizing colors, sizes, shadows, plugins, or anything else you need.
+README.md: A simple markdown file that explains how to run the project and provides relevant information.
+postcss.config.mjs: It’s a configuration file for PostCSS, a tool used to process CSS with various plugins. You can see here that it mentions tailwindcss as a plugin, which allows you to use its utility first classes in your project.
+package-lock.json: It’s a file that locks the versions of dependencies and their sub-dependencies, ensuring that everyone working on the project uses the exact same versions
+package.json: It has all project dependencies and scripts. (explain some of these main scripts by showing/reading descriptions from here)
+next-env.d.ts: It’s a typescript declaration file for Next.js. And as said here, you shouldn’t modify or put your typescript types here. It’s specifically for Next.js
+next.config.ts: This file allows you to configure Next.js features, such as experimental options, image settings, build settings, and others.
+.gitignore: For Git files and folders to ignore
+.eslintrc.json: For configuring ESLint
+public: A place for static assets. Always put your images and other static data here
+node_modules: You know, it’s the heaviest object in the universe
+
+Now, back to the app folder—you'll notice several files and folders, such as:
+
+fonts: This is where you can store font files, import them into the application, and use them easily. Your own self-hosted fonts.
+favicon.ico: Any file with this name in the root of the app folder will become your website’s favicon. It’s a naming convention of Next.js for adding favicon.
+globals.css: This is where you can write all your custom CSS or TailwindCSS utilities.
+layout.tsx: This is the main entry point for your application. Anything you do here will be applied across all pages and routes. That’s why we’ve imported fonts, styles, and metadata information here. For example, let's change the metadata from Create Next App to Hello Next.js 👋. Visit your browser, and you'll instantly see the change without reloading.
+page.tsx: This file represents the home page or / route of your site. It contains some boilerplate code by default. Let’s remove it and replace it with “Welcome to Next.js.” You can style the text, make it bold, or increase the font size using TailwindCSS. You’ll see the changes instantly on the site, thanks to HMR (Hot Module Replacement)
+
+
+Let’s check the terminal—no, browser—and there is the log. hello.client.tsx is actually a client component.
+
+But wait, you did see something in the terminal, too, right? The log of the client component is also there. How? Or maybe, more importantly, WHY?
+
+This is because Server Components are rendered only on the server side, while Client Components are pre-rendered on the server to create a static shell and then hydrated on the client side.
+
+This means that everything within the Client Component that doesn't require interactivity or isn't dependent on the browser is rendered on the server. The code or parts that rely on the browser or require interactivity are left as placeholders during server-side pre-rendering. When this reaches the client, the browser renders the Client Components and fills in the placeholders left by the server.
+
+I hope that’s crystal clear.
+
